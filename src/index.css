@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+@theme {
+  /* Industrial Orange - Primary Accent #E67E22 */
+  --color-brand-50: #fef6ee;
+  --color-brand-100: #fdead7;
+  --color-brand-200: #fad0ae;
+  --color-brand-300: #f6af7a;
+  --color-brand-400: #f09040;
+  --color-brand-500: #e67e22;
+  --color-brand-600: #d06818;
+  --color-brand-700: #ac5015;
+  --color-brand-800: #8a4118;
+  --color-brand-900: #703716;
+
+  /* Graphite Gray - Secondary #4A4A4A */
+  --color-graphite-50: #f6f6f6;
+  --color-graphite-100: #e7e7e7;
+  --color-graphite-200: #d1d1d1;
+  --color-graphite-300: #b0b0b0;
+  --color-graphite-400: #888888;
+  --color-graphite-500: #6d6d6d;
+  --color-graphite-600: #5d5d5d;
+  --color-graphite-700: #4a4a4a;
+  --color-graphite-800: #3d3d3d;
+  --color-graphite-900: #2d2d2d;
+
+  /* Steel Gray - Supporting #A0A0A0 */
+  --color-steel-50: #f8f8f8;
+  --color-steel-100: #f0f0f0;
+  --color-steel-200: #e4e4e4;
+  --color-steel-300: #d1d1d1;
+  --color-steel-400: #a0a0a0;
+  --color-steel-500: #868686;
+  --color-steel-600: #6e6e6e;
+  --color-steel-700: #5a5a5a;
+  --color-steel-800: #4d4d4d;
+  --color-steel-900: #3a3a3a;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f6f6f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a0a0a0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4a4a4a;
+}
+
+/* Animation utilities */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.slide-in-from-top-1 {
+  animation: slideDown 0.2s ease-out forwards;
+}
+
+.slide-in-from-top-2 {
+  animation: slideDown 0.25s ease-out forwards;
+}
+
+.slide-in-from-right-2 {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* Fix height utility */
+.h-18 {
+  height: 4.5rem;
+}
+
+/* Gear rotation animations */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinReverse {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 2s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spinReverse 1.5s linear infinite;
+}
