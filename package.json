@@ -1,4 +1,8 @@
 {
+  "devDependencies": {
+    // Remove: "vite-plugin-singlefile": "2.3.0"
+  }
+}
   "name": "react-vite-tailwind",
   "private": true,
   "version": "0.0.0",
