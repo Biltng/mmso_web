@@ -7,7 +7,6 @@ import {
   Clock,
   Send,
   CheckCircle,
-  AlertCircle,
 } from "lucide-react";
 
 const contactInfo = [
@@ -57,9 +56,8 @@ const serviceOptions = [
 
 export default function Contact() {
   const [searchParams] = useSearchParams();
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [selectedService, setSelectedService] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     const requestedService = searchParams.get("service") || "";
@@ -68,37 +66,10 @@ export default function Contact() {
     }
   }, [searchParams]);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus("submitting");
-    setErrorMessage("");
-
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch("https://formsubmit.co/ajax/info@mmso.co.za", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-        },
-        body: formData,
-      });
-
-      const result = await response.json();
-
-      if (response.ok && result?.success) {
-        setStatus("success");
-        form.reset();
-        setSelectedService("");
-      } else {
-        setStatus("error");
-        setErrorMessage(result?.message || "Unable to send your message right now.");
-      }
-    } catch {
-      setStatus("error");
-      setErrorMessage("Something went wrong while sending your message. Please try again or email us directly.");
-    }
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    // FormSubmit will handle the form submission
+    // Just update the UI to show success
+    setIsSubmitted(true);
   };
 
   return (
@@ -127,7 +98,7 @@ export default function Contact() {
                 href={item.href}
                 className="group flex items-start gap-4 p-4 rounded-xl hover:bg-brand-50 transition-colors"
               >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-100 to-brand-50 group-hover:from-brand-500 group-hover:to-brand-600 flex items-center justify-center shrink-0 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-100 to-brand-50 group-hover:from-brand-500 group-hover:to-brand-600 flex items-center justify-center shrink-0 transition-all">
                   <item.icon className="w-5 h-5 text-brand-500 group-hover:text-white transition-colors" />
                 </div>
                 <div>
@@ -160,7 +131,7 @@ export default function Contact() {
                 Send us a message
               </h3>
 
-              {status === "success" ? (
+              {isSubmitted ? (
                 <div className="flex flex-col items-center justify-center py-16 text-center">
                   <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-4">
                     <CheckCircle className="w-8 h-8 text-green-600" />
@@ -173,9 +144,12 @@ export default function Contact() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} action="https://formsubmit.co/info@mmso.co.za" method="POST" className="space-y-5">
+                  {/* FormSubmit configuration fields */}
                   <input type="hidden" name="_subject" value="New website enquiry from MUTHIMUNYE GROUP OF CO." />
                   <input type="hidden" name="_template" value="table" />
+                  <input type="hidden" name="_captcha" value="false" />
+                  {/* Honeypot field for spam protection */}
                   <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
 
                   <div className="grid sm:grid-cols-2 gap-5">
@@ -259,27 +233,16 @@ export default function Contact() {
                       name="message"
                       rows={5}
                       placeholder="Tell us about your project or inquiry..."
-                      className="w-full px-4 py-3 rounded-xl border border-steel-200 bg-white text-sm text-graphite-800 placeholder:text-steel-400 focus:border-brand-400 focus:ring-2 focus:ring-brand-100 outline-none transition-all resize-none"
+                      className="w-full px-4 py-3 rounded-xl border border-steel-200 bg-white text-sm text-graphite-800 placeholder:text-steel-400 focus:border-brand-400 focus:ring-2 focus:ring-brand-100 outline-none transition-all"
                     />
                   </div>
 
-                  {status === "error" && (
-                    <div className="flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-                      <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
-                      <div>
-                        <div className="font-semibold">Unable to send message</div>
-                        <div>{errorMessage}</div>
-                      </div>
-                    </div>
-                  )}
-
                   <button
                     type="submit"
-                    disabled={status === "submitting"}
-                    className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 disabled:opacity-70 disabled:cursor-not-allowed text-white font-semibold rounded-xl shadow-lg shadow-brand-200 hover:shadow-xl hover:shadow-brand-300 transition-all duration-300"
+                    className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-600 hover:to-brand-700 disabled:opacity-50 text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-[1.02] active:scale-95"
                   >
                     <Send className="w-5 h-5" />
-                    {status === "submitting" ? "Sending..." : "Send Message"}
+                    Send Message
                   </button>
                 </form>
               )}
