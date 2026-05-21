@@ -66,7 +66,7 @@ export default function Contact() {
     }
   }, [searchParams]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (_e: React.FormEvent<HTMLFormElement>) => {
     // FormSubmit will handle the form submission
     // Just update the UI to show success
     setIsSubmitted(true);
