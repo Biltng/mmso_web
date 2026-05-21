@@ -1,5 +1,7 @@
+// ✅ All imports at the TOP
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Pickaxe, Building2, ArrowRight, MessageSquareMore, Download } from "lucide-react";
 import { services } from "../data/services";
 import { generatePortfolioPdf } from "../utils/generatePortfolioPdf";
@@ -14,6 +16,18 @@ export default function HomePage() {
 
   return (
     <>
+      {/* ✅ Helmet SEO block INSIDE return, BEFORE page content */}
+      <Helmet>
+        <title>Mining & Development Company South Africa | Muthimunye Group</title>
+        <meta name="description" content="Muthimunye Group of Companies (MMSO) is a leading mining and infrastructure development company in South Africa delivering sustainable solutions." />
+        <meta property="og:title" content="Mining & Development Company South Africa | Muthimunye Group" />
+        <meta property="og:description" content="Leading mining and infrastructure development company in South Africa." />
+        <meta property="og:url" content="https://mmso.co.za/" />
+        <meta property="og:image" content="https://mmso.co.za/muthimunye-logo.png" />
+        <link rel="canonical" href="https://mmso.co.za/" />
+      </Helmet>
+
+      {/* ✅ Your existing page content below - unchanged */}
       <section
         id="home"
         className="min-h-[70vh] flex items-center bg-gradient-to-br from-white via-graphite-50 to-brand-50/40 pt-28 pb-20"
@@ -126,8 +140,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-
     </>
   );
 }
