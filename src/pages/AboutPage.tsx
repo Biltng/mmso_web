@@ -1,4 +1,6 @@
+// ✅ All imports at the TOP
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import {
   Eye,
   Target,
@@ -119,7 +121,19 @@ export default function AboutPage() {
 
   return (
     <div className="pt-[4.5rem] lg:pt-[5rem]">
-      {/* Hero */}
+
+      {/* ✅ Helmet SEO block - FIRST inside return */}
+      <Helmet>
+        <title>About Us | Muthimunye Group Mining & Development</title>
+        <meta name="description" content="Learn about Muthimunye Group of Companies - our mission, vision, values and commitment to sustainable mining and development in South Africa." />
+        <meta property="og:title" content="About Us | Muthimunye Group Mining & Development" />
+        <meta property="og:description" content="Learn about Muthimunye Group - our mission, vision, values and commitment to sustainable mining in South Africa." />
+        <meta property="og:url" content="https://mmso.co.za/about" />
+        <meta property="og:image" content="https://mmso.co.za/muthimunye-logo.png" />
+        <link rel="canonical" href="https://mmso.co.za/about" />
+      </Helmet>
+
+      {/* ✅ Hero - unchanged */}
       <section className="relative bg-gradient-to-br from-graphite-900 via-graphite-800 to-graphite-900 py-16 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_30%,rgba(230,126,34,0.20),transparent_26%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(160,160,160,0.10),transparent_22%)]" />
@@ -151,12 +165,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Vision & Mission */}
+      {/* ✅ Vision & Mission - unchanged */}
       <section className="relative pt-6 pb-14 bg-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_80%,rgba(230,126,34,0.06),transparent_18%)]" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-6 mb-12">
-            {/* Vision */}
             <div className="rounded-2xl border border-steel-200 bg-graphite-50 p-8 hover:border-brand-200 hover:shadow-lg transition-all duration-300">
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center mb-6 shadow-lg shadow-brand-200">
                 <Eye className="w-7 h-7 text-white" />
@@ -170,7 +183,6 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* Mission */}
             <div className="rounded-2xl border border-steel-200 bg-graphite-50 p-8 hover:border-brand-200 hover:shadow-lg transition-all duration-300">
               <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-graphite-700 to-graphite-800 flex items-center justify-center mb-6 shadow-lg shadow-graphite-200">
                 <Target className="w-7 h-7 text-white" />
@@ -214,7 +226,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Commitments */}
+      {/* ✅ Commitments - unchanged */}
       <section className="py-20 bg-graphite-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
@@ -243,7 +255,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Quality Policy */}
+      {/* ✅ Quality Policy - unchanged */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -283,7 +295,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Safety & Environmental Policy */}
+      {/* ✅ Safety & Environmental Policy - unchanged */}
       <section className="py-20 bg-graphite-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto mb-12">
@@ -325,7 +337,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Additional Goals */}
+      {/* ✅ Additional Goals - unchanged */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
@@ -371,6 +383,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
     </div>
   );
 }
