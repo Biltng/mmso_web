@@ -66,12 +66,25 @@ jobs:
             exit 1
           fi
 
-      - name: ✅ Check logo exists
+           - name: ✅ Check logo exists
         run: |
+          echo "📁 Contents of dist folder:"
+          ls -la dist/
+          echo ""
+          echo "📁 Contents of dist/images (if exists):"
+          ls -la dist/images/ 2>/dev/null || echo "No images folder"
+          echo ""
+          echo "📁 Contents of public folder:"
+          ls -la public/
+          echo ""
           if [ -f "dist/muthimunye-logo.png" ]; then
-            echo "✅ muthimunye-logo.png found"
+            echo "✅ muthimunye-logo.png found at dist root"
+          elif [ -f "dist/images/muthimunye-logo.png" ]; then
+            echo "⚠️ muthimunye-logo.png found in dist/images/ - needs to be moved to public root"
+            exit 1
           else
-            echo "❌ muthimunye-logo.png MISSING"
+            echo "❌ muthimunye-logo.png not found anywhere in dist"
+            echo "Please upload muthimunye-logo.png directly into the public folder"
             exit 1
           fi
 
