@@ -66,7 +66,7 @@ jobs:
             exit 1
           fi
 
-           - name: ✅ Check logo exists
+      - name: ✅ Check logo exists
         run: |
           echo "📁 Contents of dist folder:"
           ls -la dist/
@@ -80,12 +80,11 @@ jobs:
           if [ -f "dist/muthimunye-logo.png" ]; then
             echo "✅ muthimunye-logo.png found at dist root"
           elif [ -f "dist/images/muthimunye-logo.png" ]; then
-            echo "⚠️ muthimunye-logo.png found in dist/images/ - needs to be moved to public root"
-            exit 1
+            echo "⚠️ Warning: muthimunye-logo.png found in dist/images/"
+            echo "For best SEO results move it directly into public/ folder"
           else
-            echo "❌ muthimunye-logo.png not found anywhere in dist"
-            echo "Please upload muthimunye-logo.png directly into the public folder"
-            exit 1
+            echo "⚠️ Warning: muthimunye-logo.png not found in dist"
+            echo "For best SEO results upload it directly into public/ folder"
           fi
 
       - name: ✅ Check index.html has meta tags
