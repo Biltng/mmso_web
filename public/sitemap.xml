@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- Home -->
+    <url>
+        <loc>https://mmso.co.za/</loc>
+        <lastmod>2025-04-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.00</priority>
+    </url>
+
+    <!-- Main Pages -->
+    <url>
+        <loc>https://mmso.co.za/about</loc>
+        <lastmod>2025-04-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.90</priority>
+    </url>
+
+    <url>
+        <loc>https://mmso.co.za/services</loc>
+        <lastmod>2025-04-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <url>
+        <loc>https://mmso.co.za/mining-solutions</loc>
+        <lastmod>2025-04-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <url>
+        <loc>https://mmso.co.za/development</loc>
+        <lastmod>2025-04-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.80</priority>
+    </url>
+
+    <url>
+        <loc>https://mmso.co.za/contact</loc>
+        <lastmod>2025-04-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+    </url>
+
+    <!-- Legal Pages -->
+    <url>
+        <loc>https://mmso.co.za/privacy-policy</loc>
+        <lastmod>2025-04-10</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.40</priority>
+    </url>
+
+    <url>
+        <loc>https://mmso.co.za/terms-and-conditions</loc>
+        <lastmod>2025-04-10</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.40</priority>
+    </url>
+
+</urlset>
