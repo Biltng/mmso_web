@@ -1,4 +1,6 @@
+// ✅ All imports at the TOP
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { FileText, CircleAlert, Scale, Link as LinkIcon } from "lucide-react";
 
 const termsPoints = [
@@ -6,7 +8,7 @@ const termsPoints = [
   "The website and its content are provided on an 'as is' and 'as available' basis without warranties of any kind, whether express or implied.",
   "MUTHIMUNYE GROUP OF CO. does not guarantee uninterrupted availability, error-free content, or compatibility with every device, browser, or system.",
   "All decisions made based on information found on this website remain the sole responsibility of the end user.",
-  "Use of any third-party links, external platforms, downloads, references, or connected services is entirely at the end user’s own risk.",
+  "Use of any third-party links, external platforms, downloads, references, or connected services is entirely at the end user's own risk.",
   "MUTHIMUNYE GROUP OF CO. shall not be liable for any direct, indirect, incidental, special, or consequential loss arising from the use of this website or any linked website.",
   "Website content may be changed, updated, or removed at any time without notice.",
   "Nothing on this website constitutes a guaranteed offer, warranty, or binding undertaking unless separately confirmed in writing by the company.",
@@ -20,6 +22,19 @@ export default function TermsPage() {
 
   return (
     <div className="pt-[4.5rem] lg:pt-[5rem]">
+
+      {/* ✅ Helmet SEO block - FIRST inside return */}
+      <Helmet>
+        <title>Terms & Conditions | Muthimunye Group MMSO</title>
+        <meta name="description" content="Read the terms and conditions of Muthimunye Group of Companies. Understand your rights and obligations when using our website and services." />
+        <meta property="og:title" content="Terms & Conditions | Muthimunye Group MMSO" />
+        <meta property="og:description" content="Muthimunye Group terms and conditions - understanding your rights and obligations when using our website." />
+        <meta property="og:url" content="https://mmso.co.za/terms-and-conditions" />
+        <meta property="og:image" content="https://mmso.co.za/muthimunye-logo.png" />
+        <link rel="canonical" href="https://mmso.co.za/terms-and-conditions" />
+      </Helmet>
+
+      {/* ✅ Hero - unchanged */}
       <section className="relative bg-gradient-to-br from-graphite-900 via-graphite-800 to-graphite-900 py-16 lg:py-24 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_30%,rgba(230,126,34,0.18),transparent_26%)]" />
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent" />
@@ -31,11 +46,14 @@ export default function TermsPage() {
             Terms of <span className="text-brand-400">Service</span>
           </h1>
           <p className="text-lg text-steel-300 max-w-3xl mx-auto leading-relaxed">
-            These terms clarify that use of this website, its information, and any internal or external links is entirely at the end user’s own risk and not that of the company.
+            These terms clarify that use of this website, its information, and
+            any internal or external links is entirely at the end user's own
+            risk and not that of the company.
           </p>
         </div>
       </section>
 
+      {/* ✅ Content - unchanged */}
       <section className="relative pt-6 pb-14 bg-white overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_80%,rgba(230,126,34,0.06),transparent_18%)]" />
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,12 +65,18 @@ export default function TermsPage() {
                     <Scale className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h2 className="text-lg font-bold text-graphite-900">User Responsibility</h2>
-                    <p className="text-xs text-steel-500">The end user assumes responsibility for website use.</p>
+                    <h2 className="text-lg font-bold text-graphite-900">
+                      User Responsibility
+                    </h2>
+                    <p className="text-xs text-steel-500">
+                      The end user assumes responsibility for website use.
+                    </p>
                   </div>
                 </div>
                 <p className="text-sm text-steel-600 leading-relaxed">
-                  Access to this website, reliance on its content, and use of any referenced or linked service remain entirely the responsibility of the end user, not MUTHIMUNYE GROUP OF CO.
+                  Access to this website, reliance on its content, and use of
+                  any referenced or linked service remain entirely the
+                  responsibility of the end user, not MUTHIMUNYE GROUP OF CO.
                 </p>
               </div>
             </div>
@@ -61,13 +85,17 @@ export default function TermsPage() {
               <div className="rounded-2xl border border-steel-200 bg-graphite-50 p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <FileText className="w-5 h-5 text-brand-500" />
-                  <h2 className="text-xl font-bold text-graphite-900">Terms of Use</h2>
+                  <h2 className="text-xl font-bold text-graphite-900">
+                    Terms of Use
+                  </h2>
                 </div>
                 <div className="space-y-3">
                   {termsPoints.map((point, idx) => (
                     <div key={idx} className="flex items-start gap-3">
                       <CircleAlert className="w-4 h-4 text-brand-500 shrink-0 mt-1" />
-                      <p className="text-sm text-graphite-700 leading-relaxed">{point}</p>
+                      <p className="text-sm text-graphite-700 leading-relaxed">
+                        {point}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -76,16 +104,24 @@ export default function TermsPage() {
               <div className="rounded-2xl border border-steel-200 bg-white p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <LinkIcon className="w-5 h-5 text-brand-500" />
-                  <h2 className="text-xl font-bold text-graphite-900">Linked Content and Third Parties</h2>
+                  <h2 className="text-xl font-bold text-graphite-900">
+                    Linked Content and Third Parties
+                  </h2>
                 </div>
                 <p className="text-sm text-steel-600 leading-relaxed">
-                  Where the website refers to or links to third-party websites, software, documents, or services, those resources are outside the control of MUTHIMUNYE GROUP OF CO. Use of those resources is entirely at the end user’s own risk, and the company accepts no liability for any issue, damage, interruption, or consequence arising from such use.
+                  Where the website refers to or links to third-party websites,
+                  software, documents, or services, those resources are outside
+                  the control of MUTHIMUNYE GROUP OF CO. Use of those resources
+                  is entirely at the end user's own risk, and the company
+                  accepts no liability for any issue, damage, interruption, or
+                  consequence arising from such use.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </section>
+
     </div>
   );
 }
