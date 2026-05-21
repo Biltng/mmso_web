@@ -1,0 +1,14 @@
+# robots.txt for MUTHIMUNYE GROUP OF CO. (MMSO)
+# https://mmso.co.za
+
+User-agent: *
+Allow: /
+
+# Disallow any sensitive or duplicate paths (optional but good practice)
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /private/
+Disallow: /admin/
+
+# Sitemap reference
+Sitemap: https://mmso.co.za/sitemap.xml
